@@ -3,14 +3,13 @@ const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 const sqlite3 = require('sqlite3').verbose();
-const DBPATH = '../data/projeto.sql';
+const DBPATH = '../data/projeto.db';
 
 const hostname = '127.0.0.1';
 const port = 3000;
 const app = express();
 
-/* Colocar toda a parte estática no frontend */
-app.use(express.static("../frontend/"));
+app.use(express.json());
 
 /* Definição dos endpoints */
 /******** CRUD ************/
@@ -78,7 +77,6 @@ app.post('/atualizaPessoa', urlencodedParser, (req, res) => {
     });
 });
 
-
 // Remove um registro (é o D do CRUD - Delete)
 app.delete('/pessoa/:idpessoa', (req, res) => {
     const idpessoa = req.params.idpessoa;
@@ -92,7 +90,7 @@ app.delete('/pessoa/:idpessoa', (req, res) => {
       }
       res.status(200).send('USUARIO REMOVIDO COM SUCESSO!');
     });
-  });  
+});  
 
 app.listen(port, hostname, () => {
 console.log(`Servidor rodando em http://${hostname}:${port}/`);
