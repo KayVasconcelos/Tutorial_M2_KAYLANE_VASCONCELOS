@@ -372,6 +372,7 @@ p{
     color: white;
     padding: 5rem 0 5rem;
     flex-direction: column;
+    margin-top: 80px;
 }
 #footer footer{
     align-items: center;
