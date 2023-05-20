@@ -164,6 +164,8 @@ p{
     #opening .container .right img{
         width: 100%;
         height: 400px;
+        margin-top: 100px;
+        border-radius: 12%;
     }
     #opening .container .left{
         text-align: center;
@@ -172,12 +174,17 @@ p{
         height: fit-content;
     }
     #opening .container .left .title{
-        font-size: 4rem;
+        font-size: 2rem;
         margin: 0 auto;
+    }
+    #opening .container .left .subtitle{
+        font-size: 2rem;
+        padding: 20px;
     }
     #opening .container .left .description{
         margin: 0 auto;
-        margin-top: 2rem;
+        margin-top: 1.5rem;
+        padding: 0px;
     }
 }
 @media only screen and (max-width: 950px){
@@ -193,7 +200,8 @@ p{
 
 /* Education section */
 #education{
-    padding: 5rem 0;
+    margin-top: 150px;
+    padding: 1rem 0;
 }
 #education .all-items{
     display: flex;
