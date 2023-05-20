@@ -149,7 +149,7 @@ p{
     border-radius: 12px;
 }
 /* opening cestion responsiveness for mobile and tablet*/
-@media only screen and (max-width: 760px){
+@media only screen and (max-width: 900px){
     html {
         font-size: 9px;
     }
