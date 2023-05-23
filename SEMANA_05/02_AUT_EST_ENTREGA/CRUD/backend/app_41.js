@@ -33,17 +33,18 @@ app.get('/pessoa', (req, res) => {
 app.post('/inserePessoa', urlencodedParser, (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*'); 
-    var db = new sqlite3.Database(DBPATH); // Abre o banco
-    sql = "INSERT INTO pessoa (idpessoa, descricao, cargo, endereco, telefone, email, habilidade, personalidade) VALUES ('2', 'Thiago', 'estudante', 'algum lugar', '21911112222', 'thiago@gmail.com', 'empatia', 'calmo')";
-    console.log(sql);
-    db.run(sql, [],  err => {
+    const db = new sqlite3.Database(DBPATH);
+    const sql = "INSERT INTO pessoa (descricao, cargo, endereco, telefone, email, habilidade, personalidade) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    db.run(sql, Object.values(pessoa), function(err) {
         if (err) {
-            throw err;
-        }	
+            console.error(err);
+            res.status(500).send('Erro ao inserir pessoa');
+            return;
+        }
+        const idpessoa = this.lastID;
+        res.status(201).send(`<p>Usuário inserido com sucesso! ID: ${idpessoa}</p><a href="/">Voltar</a>`);
     });
-    res.write('<p>USUARIO INSERIDO COM SUCESSO!</p><a href="/">VOLTAR</a>');
-    db.close(); // Fecha o banco
-    res.end();
+    db.close();
 });
 
 // Monta o formulário para o update (é o U do CRUD - Update)
