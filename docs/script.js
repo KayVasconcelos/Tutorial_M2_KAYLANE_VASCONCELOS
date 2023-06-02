@@ -26,7 +26,7 @@ $(document).ready(function() {
   // Função para carregar os URLs das imagens usando AJAX
   function carregarUrlsImagens() {
     $.ajax({
-      url: '/imagens.json', // URL para obter o JSON com os URLs das imagens
+      url: './imagens.json', // URL para obter o JSON com os URLs das imagens
       method: 'GET',
       dataType: 'json',
       success: function(response) {
