@@ -1,7 +1,7 @@
 {
     "urls": [
-        "./images/profile.jpg",
-        "./images/profile2.jpg"
+        "profile.jpg",
+        "profile2.jpg"
     ]
   }
   
